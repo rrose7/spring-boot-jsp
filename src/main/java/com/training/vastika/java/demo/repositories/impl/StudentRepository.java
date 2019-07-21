@@ -63,14 +63,15 @@ public class StudentRepository implements CrudeRepository<Student> {
         Connection connection = DbConnector.getConnection();
 
         try{
-            String sql1 = "Insert into student( id, firstname, lastname, gpa) values(?,?, ?, ?)";
+            String sql1 = "update student set firstName=?, lastName=?, gpa=? where id=?";
             PreparedStatement ps = connection.prepareStatement(sql1);
-            ps.setString(2, student.getFirstName());
-            ps.setString(3, student.getLastName());
-            ps.setDouble(4, student.getGpa());
-            ps.setInt(1, student.getId());
-            ps.executeUpdate();
-            return true;
+            ps.setString(1, student.getFirstName());
+            ps.setString(2, student.getLastName());
+            ps.setDouble(3, student.getGpa());
+            ps.setInt(4, student.getId());
+             int rs = ps.executeUpdate();
+
+            return rs >0 ? true : false;
         }
         catch (SQLException e){
             e.printStackTrace();

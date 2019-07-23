@@ -3,16 +3,21 @@
 <jsp:include page="header.jsp"/>
 
 <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        ENTER YOUR CHOICE
+    <button class="btn btn-primary " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        SELECT
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" name ="student" href="<c:url value="/students"/>">student</a>
-        <a class="dropdown-item" name = "teacher" href="<c:url value="/teachers"/>">teacher</a>
+        <a class="dropdown-item" name ="Student" href="<c:url value="/students"/>">Student</a>
+        <a class="dropdown-item" name = "Teacher" href="<c:url value="/teachers"/>">Teacher</a>
     </div>
 </div>
 
 
-
 <jsp:include page="footer.jsp"/>
+
+
+
+
+
+
 

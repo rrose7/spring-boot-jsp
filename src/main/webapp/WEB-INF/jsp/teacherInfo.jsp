@@ -6,12 +6,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hello</title>
+    <title>Teacher</title>
 </head>
 <body
         bgcolor="#E6E6FA">
 <div class="container">
-    <h2>Teacher Details</h2>
     <div class="form-group row">
         <label class="col-2 col-form-label">ID</label>
         <div class="col-10">

@@ -50,6 +50,11 @@ public class studentController {
 
 
     }
+    @RequestMapping(value = "/students/{id}/delete", method = RequestMethod.GET)
+    public String deleteStudentRecord(@PathVariable int id) {
+        this.studentRepository.deleteById(id);
+        return "redirect:/students";
+    }
 
 
 

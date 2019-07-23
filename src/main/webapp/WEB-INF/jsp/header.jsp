@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +13,5 @@
 
 <div class="jumbotron text-center">
     <h1>CMS</h1>
-    <p>College Record Management System
-    </p>
+    <a class="btn btn-default" href="<c:url value="/"/>"><p>College Record Management System</p></a>
 </div>

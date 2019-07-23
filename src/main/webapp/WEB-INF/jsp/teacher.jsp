@@ -1,16 +1,17 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <jsp:include page="header.jsp"/>
-
+<h2 style = "text-align:center;">Teacher Details</h2>
 <div class="container">
+    <div class="col text-center">
     <form class="form-inline" action = "teacherInfo">
         <input type="text" name = "teacherId" class="form-control mb-2 mr-sm-2 mb-sm-0" id = "inlineFormInput" placeholder="Enter Teacher ID"/>
         <button type = "Submit">search</button>
     </form>
     <div class="col col-md-2">
-        <a class="btn btn-primary pull-right" href="<c:url value="/teachers/add"/>">Add</a>
+        <a class="btn btn-primary" href="<c:url value="/teachers/add"/>">Insert New Details</a>
     </div>
-    <h2>Teacher Details</h2>
+    </div>
     <table class="table">
         <thead>
         <tr>
@@ -31,9 +32,7 @@
                 <td>
                     <a class="btn btn-primary" href="<c:url value="/teachers/${teacher.id}/edit"/>">Edit</a>
 
-                    </button></a>
-
-                    <button name="Delete" class ="btn btn-danger">Delete</button>
+                    <a class ="btn btn-danger" href="<c:url value="/teachers/${teacher.id}/delete"/>">Delete</a>
 
                 </td>
             </tr>

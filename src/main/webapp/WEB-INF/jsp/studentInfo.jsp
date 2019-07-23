@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hello</title>
+    <title>Student</title>
 </head>
 <body
 bgcolor="#E6E6FA">

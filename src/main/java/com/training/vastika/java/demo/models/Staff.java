@@ -1,9 +1,21 @@
 package com.training.vastika.java.demo.models;
 
-public class Staff extends Object {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Staff")
+public class Staff{
+    @Id
+    @Column(name = "id")
     private int id;
+    @Column(name="firstName")
     private String firstName;
+    @Column(name ="lastname")
     private String lastName;
+    @Column(name = "department")
     private String department;
 
     public Staff(int id, String firstName, String lastName, String department) {

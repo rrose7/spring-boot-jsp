@@ -1,84 +1,9 @@
 package com.training.vastika.java.demo.repositories.impl;
 
-
-
-import com.training.vastika.java.demo.DbConnector;
 import com.training.vastika.java.demo.models.Student;
-import com.training.vastika.java.demo.repositories.CrudeRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
-public class StudentRepository implements CrudeRepository<Student> {
-    public List<Student> findAll() {
-        Connection connection = DbConnector.getConnection();
-        List<Student> students = new ArrayList<>();
-        try {
-            PreparedStatement ps = connection.prepareStatement("select * from student");
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                String firstName = rs.getString("firstName");
-                String lastName = rs.getString("lastName");
-                double gpa = rs.getDouble("gpa");
-
-                Student student = new Student(id, firstName, lastName, gpa);
-
-                students.add(student);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return students;
-    }
-
-    public Student findById(int userid) {
-        Connection connection = DbConnector.getConnection();
-        try {
-            PreparedStatement ps = connection.prepareStatement("select * from student where id = ?");
-            ps.setInt(1,userid);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                String firstName = rs.getString("firstName");
-                String lastName = rs.getString("lastName");
-                double gpa = rs.getDouble("gpa");
-                Student student = new Student(id, firstName,lastName, gpa);
-                return student;
-
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public boolean update(Student student){
-        Connection connection = DbConnector.getConnection();
-
-        try{
-            String sql1 = "update student set firstName=?, lastName=?, gpa=? where id=?";
-            PreparedStatement ps = connection.prepareStatement(sql1);
-            ps.setString(1, student.getFirstName());
-            ps.setString(2, student.getLastName());
-            ps.setDouble(3, student.getGpa());
-            ps.setInt(4, student.getId());
-             int rs = ps.executeUpdate();
-
-            return rs >0 ? true : false;
-        }
-        catch (SQLException e){
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-
+@Repository
+public interface StudentRepository extends JpaRepository<Student,Integer> {
 }
-
